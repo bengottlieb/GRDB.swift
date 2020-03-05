@@ -2076,7 +2076,7 @@ Those functions are embedded right into the [GRDBCustom](Documentation/CustomSQL
 
 ```swift
 // Swift Package Manager
-import CSQLite
+import SQLite3
 
 // SQLCipher
 import SQLCipher

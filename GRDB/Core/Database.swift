@@ -1,6 +1,6 @@
 import Foundation
 #if SWIFT_PACKAGE
-import CSQLite
+import SQLite3
 #elseif GRDBCIPHER
 import SQLCipher
 #elseif !GRDBCUSTOMSQLITE && !GRDBCIPHER
@@ -50,16 +50,16 @@ public final class Database {
     /// > for debugging.
     public static var logError: LogErrorFunction? = nil {
         didSet {
-            if logError != nil {
-                registerErrorLogCallback { (_, code, message) in
-                    guard let logError = Database.logError else { return }
-                    guard let message = message.map(String.init) else { return }
-                    let resultCode = ResultCode(rawValue: code)
-                    logError(resultCode, message)
-                }
-            } else {
-                registerErrorLogCallback(nil)
-            }
+//            if logError != nil {
+//                registerErrorLogCallback { (_, code, message) in
+//                    guard let logError = Database.logError else { return }
+//                    guard let message = message.map(String.init) else { return }
+//                    let resultCode = ResultCode(rawValue: code)
+//                    logError(resultCode, message)
+//                }
+//            } else {
+//                registerErrorLogCallback(nil)
+//            }
         }
     }
     
@@ -296,11 +296,11 @@ public final class Database {
     }
     
     private func setupDoubleQuotedStringLiterals() {
-        if configuration.acceptsDoubleQuotedStringLiterals {
-            enableDoubleQuotedStringLiterals(sqliteConnection)
-        } else {
-            disableDoubleQuotedStringLiterals(sqliteConnection)
-        }
+//        if configuration.acceptsDoubleQuotedStringLiterals {
+//            enableDoubleQuotedStringLiterals(sqliteConnection)
+//        } else {
+//            disableDoubleQuotedStringLiterals(sqliteConnection)
+//        }
     }
     
     private func setupForeignKeys() throws {
